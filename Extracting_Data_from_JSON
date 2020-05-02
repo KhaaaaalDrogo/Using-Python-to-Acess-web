@@ -1,0 +1,27 @@
+#In this a exercise i've written a Python program somewhat similar to http://www.py4e.com/code3/json2.py
+The program will prompt for a URL, read the JSON data from that URL using urllib and then parse and extract
+the comment counts from the JSON data, compute the sum of the numbers in the file.
+
+
+
+#The exercise came from "Using Python To Access Web Data" on Coursera
+
+
+from urllib.request import urlopen
+import json
+import ssl
+ctx = ssl.create_default_context()
+ctx.check_hostname = False
+ctx.verify_mode = ssl.CERT_NONE
+li = list()
+url = input('Enter - ')
+html = urlopen(url, context=ctx).read()
+info = json.loads(html)
+x = info["comments"]
+
+for items in x :
+	y = items['count']
+	li.append(y)
+
+print(sum(li))
+     
