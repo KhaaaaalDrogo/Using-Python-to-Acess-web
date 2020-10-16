@@ -23,5 +23,5 @@ for items in x :
 	y = items['count']
 	li.append(y)
 
-print(sum(li))
+print(sum(li))  //this is imp
      
